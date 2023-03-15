@@ -9,4 +9,4 @@ WORKDIR /root
 COPY epepek.sh /root/epepek.sh
 RUN chmod +x epepek.sh
 VOLUME [ "/root/.config" ]
-ENTRYPOINT ["/root/entrypoint.sh"]
+ENTRYPOINT ["/root/epepek.sh"]
