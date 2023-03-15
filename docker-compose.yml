@@ -1,0 +1,23 @@
+
+version: '3.9'
+services:
+  p2p:
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        max_attempts: 2
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: '50M'
+    image: enwaiax/peer2profit:latest
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    logging: 
+      driver: "local"
+      options:
+        max-size: "1m"
+    volumes:
+      - ./proxychains4.conf:/root/proxychains4.conf
